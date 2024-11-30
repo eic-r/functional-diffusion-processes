@@ -38,23 +38,21 @@ class CIFAR10Dataset(ImageDataset, abc.ABC):
         self.dataset_builder = tfds.builder(name="cifar10", data_dir=self.data_config.data_dir)
 
     def _resize_op(self, image: Any, size: int) -> Any:
-        """Resize and crop an image to a specified size.
-
-        This method first normalizes the pixel values of the input image to the range [0, 1],
-        then applies a central crop to obtain a square image of size 140.
-        Finally, it resizes the cropped image to the specified resolution.
+        """Resizes the input image to the specified size and normalizes its values to the range [0,1].
 
         Args:
             image (Any): A tensor representing the input image.
-            size (int): The resolution to resize the image to.
+            size (int): The target size for each dimension of the output image.
 
         Returns:
-            Any: A tensor representing the resized and cropped image.
+            Any: A tensor representing the resized and normalized image.
         """
+        # convert to range [0,1]
         pylogger.info("Converting image to range [0,1]...")
         image = tf.image.convert_image_dtype(image=image, dtype=tf.float32)
-        pylogger.info("Resizing and cropping image to size {}...".format(size))
-        image = central_crop(image=image, size=140)
-        image = resize_small(image=image, resolution=size)
+        # resize to size
+        pylogger.info("Resizing image to size {}...".format(size))
+
+        image = tf.image.resize(images=image, size=[size, size])
 
         return image
