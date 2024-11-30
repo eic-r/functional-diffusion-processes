@@ -23,7 +23,7 @@ trainers:
   evaluation_config:
     seed: 43 # random seed for reproducibility
     eval_dir: ${oc.env:LOGS_ROOT}/inr_cifar10
-    num_samples: 50000 # number of samples to be generated for evaluation
+    num_samples: 500 # number of samples to be generated for evaluation
 
 sdes:
   sde_config:
@@ -46,25 +46,18 @@ samplers:
 models:
   model_config:
     layer_sizes:
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
       - ${datasets.test.data_config.output_size}
     y_input: True
 datasets:
   test:
     _target_: functional_diffusion_processes.datasets.cifar10_dataset.CIFAR10Dataset
     data_config:
-      batch_size: 256
+      batch_size: 512

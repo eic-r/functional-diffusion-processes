@@ -2,7 +2,7 @@ train:
   _target_: functional_diffusion_processes.datasets.cifar10_dataset.CIFAR10Dataset
   data_config:
     seed: 42
-    batch_size: 1
+    batch_size: 16
     image_height_size: 32
     image_width_size: 32
     output_size: 3
@@ -18,7 +18,7 @@ test:
   _target_: functional_diffusion_processes.datasets.cifar10_dataset.CIFAR10Dataset
   data_config:
     seed: 43
-    batch_size: 1
+    batch_size: 16
     image_height_size: 32
     image_width_size: 32
     output_size: 3
