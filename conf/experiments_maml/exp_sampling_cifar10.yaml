@@ -66,4 +66,4 @@ datasets:
     data_config:
       image_height_size: 32
       image_width_size: 32
-      batch_size: 1 #put the largest possible batch size
+      batch_size: 4 #put the largest possible batch size

@@ -79,7 +79,9 @@ models:
 datasets:
   train:
     data_config:
-      batch_size: 1 #put the largest possible batch size
+      image_height_size: 32
+      image_width_size: 32
+      batch_size: 16 #put the largest possible batch size
 
 trainer_logging:
   use_wandb: True # if True, wandb is used for logging
