@@ -1,7 +1,9 @@
 import tensorflow as tf
 from tensorflow.keras.datasets import cifar10
 from sklearn.model_selection import train_test_split
+import os
 
+output_dir = "data/tensorflow_datasets/cifar10/3.0.2"
 # Function to convert numpy images and labels into TFRecord format
 def _bytes_feature(value):
     """Returns a bytes_list from a string / byte."""
@@ -13,7 +15,7 @@ def _int64_feature(value):
 
 def create_tfrecord(images, labels, filename):
     """Converts a dataset to TFRecord format and writes it to a file."""
-    with tf.io.TFRecordWriter(filename) as writer:
+    with tf.io.TFRecordWriter(os.path.join(output_dir, filename)) as writer:
         for image, label in zip(images, labels):
             feature = {
                 'image': _bytes_feature(image),  # Image as byte string
@@ -29,6 +31,9 @@ def create_tfrecord(images, labels, filename):
 train_images, val_images, train_labels, val_labels = train_test_split(
     train_images, train_labels, test_size=0.2, random_state=42
 )
+
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
 
 # Create TFRecord files for training, validation, and testing
 create_tfrecord(train_images, train_labels, 'cifar10-train.tfrecord')
