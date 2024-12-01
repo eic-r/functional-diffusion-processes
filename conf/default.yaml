@@ -7,8 +7,8 @@ core:
 
 defaults:
   - hydra: default
-  - datasets: cifar10
-  - metrics: metrics_cifar10
+  - datasets: celeba
+  - metrics: metrics_celeba
   - models: mlp_modulation
   - trainers: trainer_maml
   - sdes: heat_subvp

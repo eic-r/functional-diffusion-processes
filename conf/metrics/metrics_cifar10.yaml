@@ -1,6 +1,6 @@
 _target_: functional_diffusion_processes.metrics.fid_metric.FIDMetric
 metric_config:
-  dataset_name: "cifar10_train"
+  dataset_name: "cifar10_test"
   real_features_path: ${oc.env:DATA_ROOT}/stats # path containing statistics for real data
   num_samples: ${trainers.evaluation_config.num_samples} # number of samples to be generated for evaluation
 feature_extractor:

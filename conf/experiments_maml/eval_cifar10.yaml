@@ -7,6 +7,7 @@ defaults:
   - override /samplers: pc_sampler
   - override /predictors: euler
   - override /correctors: langevin
+  - override /metrics: metrics_cifar10
 
 
 trainers:
@@ -46,18 +47,22 @@ samplers:
 models:
   model_config:
     layer_sizes:
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
       - ${datasets.test.data_config.output_size}
     y_input: True
 datasets:
   test:
     _target_: functional_diffusion_processes.datasets.cifar10_dataset.CIFAR10Dataset
     data_config:
+      image_height_size: 32
+      image_width_size: 32
       batch_size: 512

@@ -8,11 +8,11 @@ defaults:
 trainers:
   model_name: "local"
   training_config:
-    total_steps: 20000
-    eval_freq: 1000
-    scheduler_steps: 400
+    total_steps: 10000
+    eval_freq: 500
+    scheduler_steps: 500
     checkpoint_freq: 1000
-    warmup_steps: 120
+    warmup_steps: 60
     decay_steps: 400
     peak_value: 1e-5
     end_value: 3e-6
@@ -59,14 +59,16 @@ models:
     use_dense_lr: True
 
     layer_sizes:
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
       - ${datasets.train.data_config.output_size}
     y_input: True
 datasets:
@@ -74,7 +76,7 @@ datasets:
     data_config:
       image_height_size: 32
       image_width_size: 32
-      batch_size: 16 #put the largest possible batch size
+      batch_size: 32 #put the largest possible batch size
 
 trainer_logging:
   use_wandb: True # if True, wandb is used for logging

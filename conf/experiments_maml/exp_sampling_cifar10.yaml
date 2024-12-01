@@ -10,7 +10,7 @@ defaults:
 trainers:
   model_name: "local"
   training_config:
-    total_steps: 5001
+    total_steps: 10051
     eval_freq: 1
     save_dir: ${oc.env:LOGS_ROOT}/inr_cifar10
     inner_steps: 3
@@ -44,14 +44,16 @@ samplers:
 models:
   model_config:
     layer_sizes:
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
       - ${datasets.train.data_config.output_size}
     y_input: True
 datasets:
