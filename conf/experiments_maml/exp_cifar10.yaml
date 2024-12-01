@@ -8,15 +8,15 @@ defaults:
 trainers:
   model_name: "local"
   training_config:
-    total_steps: 10000
-    eval_freq: 500
-    scheduler_steps: 500
+    total_steps: 20000
+    eval_freq: 1000
+    scheduler_steps: 1000
     checkpoint_freq: 1000
-    warmup_steps: 60
-    decay_steps: 400
-    peak_value: 1e-5
-    end_value: 3e-6
-    inner_learning_rate: 0.1
+    warmup_steps: 300
+    decay_steps : 1000
+    peak_value: 3.3e-5
+    end_value: 1e-5
+    inner_learning_rate: 1e-2
     inner_steps: 3
     save_dir: ${oc.env:LOGS_ROOT}/train_inr_cifar10
     use_meta_sgd: True
@@ -59,22 +59,21 @@ models:
     use_dense_lr: True
 
     layer_sizes:
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
-      - 128
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
+      - 256
       - ${datasets.train.data_config.output_size}
     y_input: True
 datasets:
