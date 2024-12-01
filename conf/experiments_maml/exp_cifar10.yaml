@@ -17,7 +17,7 @@ trainers:
     peak_value: 1e-5
     end_value: 3e-6
     inner_learning_rate: 0.1
-    inner_steps: 1
+    inner_steps: 3
     save_dir: ${oc.env:LOGS_ROOT}/train_inr_cifar10
     use_meta_sgd: True
     ema_rate: 0.9999
