@@ -24,7 +24,7 @@ trainers:
   evaluation_config:
     seed: 43 # random seed for reproducibility
     eval_dir: ${oc.env:LOGS_ROOT}/inr_cifar10
-    num_samples: 500 # number of samples to be generated for evaluation
+    num_samples: 50 # number of samples to be generated for evaluation
 
 sdes:
   sde_config:
