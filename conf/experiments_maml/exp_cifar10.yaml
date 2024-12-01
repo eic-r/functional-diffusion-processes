@@ -59,16 +59,22 @@ models:
     use_dense_lr: True
 
     layer_sizes:
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
       - ${datasets.train.data_config.output_size}
     y_input: True
 datasets:
@@ -76,7 +82,7 @@ datasets:
     data_config:
       image_height_size: 32
       image_width_size: 32
-      batch_size: 32 #put the largest possible batch size
+      batch_size: 16 #put the largest possible batch size
 
 trainer_logging:
   use_wandb: True # if True, wandb is used for logging

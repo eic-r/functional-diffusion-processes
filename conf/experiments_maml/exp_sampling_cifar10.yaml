@@ -44,16 +44,22 @@ samplers:
 models:
   model_config:
     layer_sizes:
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
-      - 256
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
+      - 128
       - ${datasets.train.data_config.output_size}
     y_input: True
 datasets:
