@@ -6,7 +6,6 @@ import tensorflow as tf
 import tensorflow_datasets as tfds
 from omegaconf import DictConfig
 
-from .dataset_utils import central_crop, resize_small
 from .image_dataset import ImageDataset
 
 pylogger = logging.getLogger(__name__)
