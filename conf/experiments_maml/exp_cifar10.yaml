@@ -8,16 +8,16 @@ defaults:
 trainers:
   model_name: "local"
   training_config:
-    total_steps: 5000
-    eval_freq: 100
-    scheduler_steps: 100
-    checkpoint_freq: 100
-    warmup_steps: 30
-    decay_steps : 100
-    peak_value: 3.3e-3
-    end_value: 1e-3
-    inner_learning_rate: 1e1
-    inner_steps: 3
+    total_steps: 20000
+    eval_freq: 1000
+    scheduler_steps: 400
+    checkpoint_freq: 1000
+    warmup_steps: 120
+    decay_steps: 400
+    peak_value: 1e-5
+    end_value: 3e-6
+    inner_learning_rate: 0.1
+    inner_steps: 1
     save_dir: ${oc.env:LOGS_ROOT}/train_inr_cifar10
     use_meta_sgd: True
     ema_rate: 0.9999
