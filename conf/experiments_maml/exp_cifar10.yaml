@@ -12,7 +12,7 @@ trainers:
     eval_freq: 1000
     scheduler_steps: 1000
     checkpoint_freq: 1000
-    warmup_steps: 300
+    warmup_steps: 600
     decay_steps : 1000
     peak_value: 3.3e-5
     end_value: 1e-5
@@ -70,10 +70,6 @@ models:
       - 256
       - 256
       - 256
-      - 256
-      - 256
-      - 256
-      - 256
       - ${datasets.train.data_config.output_size}
     y_input: True
 datasets:
@@ -81,7 +77,7 @@ datasets:
     data_config:
       image_height_size: 32
       image_width_size: 32
-      batch_size: 8 #put the largest possible batch size
+      batch_size: 16 #put the largest possible batch size
 
 trainer_logging:
   use_wandb: True # if True, wandb is used for logging

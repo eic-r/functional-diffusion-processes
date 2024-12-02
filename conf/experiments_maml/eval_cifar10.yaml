@@ -58,10 +58,6 @@ models:
       - 256
       - 256
       - 256
-      - 256
-      - 256
-      - 256
-      - 256
       - ${datasets.test.data_config.output_size}
     y_input: True
 datasets:
